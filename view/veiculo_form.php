@@ -2,19 +2,19 @@
     <input type="hidden" name="id" value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getId() : ''; ?>">
     
     <label>Modelo:
-        <input type="text" name="modelo" required value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getModelo() : ''; ?>">
+        <input type="text" name="modelo" required pattern="[A-Za-zÀ-ú\s]+" title="O modelo deve conter apenas letras" oninput="this.value = this.value.replace(/[0-9]/g, '')" value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getModelo() : ''; ?>">
     </label><br>
 
     <label>Marca:
-        <input type="text" name="marca" required value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getMarca() : ''; ?>">
+        <input type="text" name="marca" required pattern="[A-Za-zÀ-ú\s]+" title="A marca deve conter apenas letras" oninput="this.value = this.value.replace(/[0-9]/g, '')" value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getMarca() : ''; ?>">
     </label><br>
 
     <label>Ano:
-        <input type="number" name="ano" required value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getAno() : ''; ?>">
+        <input type="number" name="ano" required min="1900" max="2026" value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getAno() : ''; ?>">
     </label><br>
 
     <label>Preço:
-        <input type="number" name="preco" required value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getPreco() : ''; ?>">
+        <input type="number" name="preco" required min="0" step="0.01" value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getPreco() : ''; ?>">
     </label><br>
 
     <label>Situação:
