@@ -28,7 +28,7 @@ if (isset($_GET['editar'])) {
 if (isset($_GET['deletar'])) {
     $controller->deletar($_GET['deletar']);
 }
-
+  
 if (isset($_GET['alugar'])) {
     $controller->atualizarSituacao($_GET['alugar'], 'Alugado');
 }
@@ -36,6 +36,8 @@ if (isset($_GET['alugar'])) {
 if (isset($_GET['devolver'])) {
     $controller->atualizarSituacao($_GET['devolver'], 'Disponível');
 }
+
+echo "<h1>Locadora da UNIFAP</h1>";
 
 require_once 'view/veiculo_form.php';
 

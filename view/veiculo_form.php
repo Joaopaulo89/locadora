@@ -10,7 +10,16 @@
     </label><br>
 
     <label>Ano:
-        <input type="number" name="ano" required min="1900" max="2026" value="<?php echo isset($veiculoEdit) ? $veiculoEdit->getAno() : ''; ?>">
+        <select name="ano" required>
+            <option value="">Selecione o ano</option>
+            <?php
+            $anoAtual = date('Y');
+            for ($i = $anoAtual; $i >= 1900; $i--) {
+                $selected = (isset($veiculoEdit) && $veiculoEdit->getAno() == $i) ? 'selected' : '';
+                echo "<option value='$i' $selected>$i</option>";
+            }
+            ?>
+        </select>
     </label><br>
 
     <label>Preço:
